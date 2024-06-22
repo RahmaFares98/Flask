@@ -1,0 +1,49 @@
+<!-- 
+Name : Dojo Survey aasigement ..
+Description :this will show the result data that has been filled from user 
+and when click on goback buttom it will return to defult bage 
+Author by :Rahma Fares-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_result.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Submitted info</h1>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Name:</strong> {{ data['First_name'] }}</li>
+            <li class="list-group-item"><strong>Gender:</strong> {{ data['Gender'] }}</li>
+            <li class="list-group-item"><strong>Dojo Location:</strong> {{ data['Dojo Location'] }}</li>
+            <li class="list-group-item"><strong>Favourite Languages:</strong>
+                <ul>
+                    {% if data.get('Python') %}
+                    <li>{{ data['Python'] }}</li>
+                    {% endif %}
+                    {% if data.get('C Charp') %}
+                    <li>{{ data['C Charp'] }}</li>
+                    {% endif %}
+                    {% if data.get('Java') %}
+                    <li>{{ data['Java'] }}</li>
+                    {% endif %}
+                </ul>
+            </li>
+            <li class="list-group-item"><strong>Comment:</strong> {{ data['comment'] }}</li>
+        </ul>  
+        <button  onclick="goBack()" class="goBack" type="GoBack">GoBack <a href="http://localhost:5000/"></a></button>
+    </div>
+    <script >
+        function goBack (){
+    window.location.href = 'http://localhost:5000/';
+}
+
+    </script>
+
+</body>
+
+</html>

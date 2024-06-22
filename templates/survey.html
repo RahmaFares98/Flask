@@ -1,0 +1,89 @@
+<!-- 
+Name : Dojo Survey aasigement ..
+Description :this will show the survey form and the user can fill the data 
+but we add validate function to be sure to fill all required data
+Author by :Rahma Fares-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_form.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <form name="myForm" action="/result" method="POST" onsubmit="return validateForm()">
+            <div class="Form-group">
+                <div>
+                    <label for="name">Your Name:</label>
+                    <input type="text" name="First_name" placeholder="Your First Name...">
+                </div>
+                <div>
+                    <span>Gender Identity:</span>
+                    <input type="radio" name="Gender" value="Male" id="Male">
+                    <label for="Male">Male</label>
+                    <input type="radio" name="Gender" value="Female" id="Female">
+                    <label for="Female">Female</label>
+                </div>
+                <div>
+                    <label for="Dojo Location">Dojo Location:</label>
+                    <select name="Dojo Location">
+                        <option value="San Jose">San Jose</option>
+                        <option value="Oakland">Oakland</option>
+                        <option value="Burbank">Burbank</option>
+                        <option value="Palestine">Palestine</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Favourite Language"> Favourite Language :</label><br>
+                    <input type="checkbox" name="Python" id="Python" value="Python">
+                    <label> Python</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="C Charp" id="C Charp" value="C Charp">
+                    <label> CCharp</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="Java" id="Java" value="Java">
+                    <label for="Java">Java</label>
+                </div>
+                <div class="commentArea">
+                    <label for="comment">Comment (Optional):</label>
+                    <div> <textarea name="comment" cols="80" rows="4"></textarea></div>
+                </div>
+                <div>
+                    <button class="submitButton" type="submit" class="btn btn-primary">Button</button>
+                </div>
+            </div>
+        </form>
+        <script>
+            function validateForm() {
+                // Get form elements
+                var name = document.forms["myForm"]["First_name"].value;
+                var gender = document.forms["myForm"]["Gender"].value;
+                var location = document.forms["myForm"]["Dojo Location"].value;
+                var python = document.forms["myForm"]["Python"].checked;
+                var cSharp = document.forms["myForm"]["C Charp"].checked;
+                var java = document.forms["myForm"]["Java"].checked;
+                // Check if any required field is empty
+                if (name == "" || gender == "" || location == "") {
+                    alert("Please fill out all required fields.");
+                    return false; // Prevent form submission
+                }
+
+                // Check if at least one language is selected
+                if (!python && !cSharp && !java) {
+                    alert("Please select at least one favourite language.");
+                    return false; // Prevent form submission
+                }
+                return true;
+            }
+        </script>
+</body>
+
+</html>

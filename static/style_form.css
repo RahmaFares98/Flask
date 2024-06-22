@@ -1,0 +1,27 @@
+.container {
+margin: 5% 10%;
+font-family: Arial, sans-serif;
+}
+
+.Form-group{
+border-color: black;
+padding: 7% 3%;
+border-style: solid;
+display: flex;
+justify-content: left;
+flex-direction: column;
+align-items: left;
+}
+
+.commentArea {
+border-width:0.25cap;
+}
+
+.submitButton {
+background-color: #76a5af;
+border-style: solid;
+box-shadow: 3px 7px 5px black;
+width: 100px;
+height: 30px;
+    margin-left:49%
+}
