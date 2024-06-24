@@ -5,22 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beautiful Boxes</title>
     <style>
+        :root {
+            --box-color: {{ color }};
+        }
         .box {
             width: 100px;
             height: 100px;
             display: inline-block;
             margin: 10px;
-            background-color: var(--box-color);
+            background-color:var(--box-color)
         }
     </style>
 </head>
 <body>
     <h1>Beautiful Boxes</h1>
-    <style>
-        :root {
-            --box-color: {{ color }};
-        }
-    </style>
     {% for i in range(x) %}
         <div class="box"></div>
     {% endfor %}
